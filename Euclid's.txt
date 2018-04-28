@@ -25,8 +25,9 @@ move R3, 20   # b = 20
 #move R2, 569
 #move R3, 784
 
-push R3   # 传参数b
-push R2   # 传参数a
+push R3   # 传参数a
+push R2   # 传参数b
+
 
 call Lgcd   #调用求最大公约数函数Lgcd
 goto Lprint   #打印结果
@@ -35,43 +36,43 @@ Lgcd:   #gcd(x,y)  push pc
 _pause
 push R15   
 move R15,sp    # 新的fp等于sp
-push R3   
-push R2
-load R2, 02(R15)   # R2 = a
-load R3, 03(R15)  # R3 = b
-
+push R2   
+push R3
 push R4
-slt R4,R2,R3  #比较R2与R3的大小
+push R5
+load R2, 02(R15)   # R2 = a
+load R3, 03(R15)   # R3 = b
+
+slt R4,R2,R3  #比较R2与R3的大小，使得R2存大值，R3存小值
 beqz R4, Lmod   
 load R2, 03(R15)   # R2 = b
-load R3, 02(R15)  # R3 = a
+load R3, 02(R15)   # R3 = a
 
-Lmod:   #求模，将求模的结果保存在R2中
-push R5
-push R6
+Lmod:   #求模，将求模的结果保存在R4中
 div R5,R2,R3
-mul R6,R5,R3
-sub R2,R2,R6
+mul R5,R5,R3
+sub R4,R2,R5
+
+beqz R4,L1
+push R3
+push R4
+call Lgcd
+goto Lreturn
+
 
 L1:
-beqz R2,Lresult
-push R3
-push R2
-call Lgcd
+move R1,R3
 
 
-Lresult:
-move R1, R3
-
-pop R6 
+Lreturn:
 pop R5
 pop R4
+pop R3
 pop R2
-#pop R3
 move sp,R15   #sp = fp
 pop R15       #重设fp的值，成为旧的fp
 ret           #pop pc
 
+
 Lprint:  #打印输出结果，输出结果保存在R1中
 _pr R1
-
