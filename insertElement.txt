@@ -23,16 +23,18 @@
 #     print(arr[i], end=" ")
 # print("arrLength",arrLength)
 
-_data 0,[1, 2, 3, 4, 5, 6, 7, 8]
+#_data 0,[1, 2, 3, 4, 5, 6, 7, 8]
+_data 0,[1, 2, 3, 4, 5, 6, 7, 8, 9]
 move R15,10000
 move sp,R15
 move R2, 0    #序列的首地址
-move R3, 8    #序列的长度
+#move R3, 8    #序列的长度
+move R3, 9    #序列的长度
 #move R4, 0    #要插入的元素
 #move R4,9
-move R4,8
+#move R4,8
 #move R4, 3
-#move R4, 7    #要插入的元素
+move R4, 8    #要插入的元素
 
 push R4   #要插入的元素
 push R3   #序列的长度
@@ -51,6 +53,7 @@ push R5
 push R6
 push R7
 push R8
+push R9
 load R2, 02(R15)
 load R3, 03(R15)
 load R4, 04(R15)
@@ -76,11 +79,13 @@ store 00(R8),R7
 goto L1
 
 LinsertEnd:
+sub R9, R3,1
 #得到最后一个元素
-load R5, 07(R2)    #得到最后一个元素,07取决于序列本身的长度，如果序列长度发生变化，则这里的值需要改变
+load R5, 00(R9)   
 sle R6, R5, R4
 beqz R6, Lfor
-store 08(R2),R4    #根据插入的序列的长度会发生变化
+add R9,R9,1 
+store 00(R9),R4 
 add R1,R3,1
 goto Lreturn
 
@@ -117,6 +122,7 @@ goto Lfor
 
 
 Lreturn:
+pop R9
 pop R8
 pop R7
 pop R6
