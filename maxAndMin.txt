@@ -35,9 +35,11 @@
 #<汇编代码：递归实现最大值与最小值>
 #_data 0,[13,19,9,5,12,8,7,4,11,2,6,21]   #error
 #_data 0,[13,19,9,5,12,8,7,4,11,2,21]  #error
-_data 0,[5,4,3,2,18]    #error
+#_data 0,[5,4,3,2,18]    #error
 #_data 0,[5,4,3,2,1]    #success
-#_data 0,[2,1]         #success
+#_data 0,[5,4,3,2]       #error
+#_data 0,[2,3,4,5]         #success
+_data 0,[2,1]         #success
 #_data 0,[2]           #success
 #_data 0,[2,1,3]       #success
 #_data 0,[1,5,19]      #success
@@ -45,7 +47,7 @@ _data 0,[5,4,3,2,18]    #error
 move R15,10000
 move sp,R15
 move R2, 0     #序列的首地址，即start值
-move R3, 5     #序列的长度，此变量存放end位置
+move R3, 2     #序列的长度，此变量存放end位置
 sub R3, R3,1   #减1存放end
 
 push R3
@@ -82,6 +84,7 @@ beqz R14, Lout3
 add R7, R2, R3
 div R7, R7,2   #获取到middle位置
 
+_pr "first:",R7
 push R7      #将middle压入栈中
 push R2      #将start压入栈中
 call Lfind   #调用findMaxAndValueRecursive(arr,start,middle)
@@ -90,7 +93,7 @@ move R9, R1  #将第一次递归调用的最小值存入R9中
 #_pr "R8:",R8
 #_pr "R9:",R9
 
-
+_pr "second:",R7
 push R3        #将end位置压入栈中
 push R7        #将middle压入栈中
 call Lfind     #调用findMaxAndValueRecursive(arr,middle+1,end)
