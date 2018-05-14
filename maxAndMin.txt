@@ -41,8 +41,8 @@
 #_data 0,[2,3,4,5]         #success
 #_data 0,[2,1]         #success
 #_data 0,[2]           #success
-#_data 0,[2,1,3]       #success
-_data 0,[1,5,19]      #success
+_data 0,[2,1,3]       #success
+#_data 0,[1,5,19]      #success
 
 move R15,10000
 move sp,R15
