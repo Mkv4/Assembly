@@ -15,8 +15,8 @@
 
 ```asm
 .386     ;(单行注释，使用;引导)表示该汇编语言的指令集
-.model flat,stdcall    ;存储模式，平坦内存模式flat 语言类型为stdcall 从右向左亚栈
-option casemap:none    ;大小写敏感
+.model flat,stdcall    ;存储模式，平坦内存模式flat 语言类型为stdcall 从右向左压栈
+option casemap:none    ;大小写敏感
 includelib msvcrt.lib  ;引入静态数据链接库，相当于#include <stdio.h>
 printf proto C:VARARG  ;声明需要使用的函数头，函数不由被调用者清栈，而是由调用者负责清栈
 
