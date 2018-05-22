@@ -1,5 +1,4 @@
 ### <center>**使用Visual Studio 2013编写并执行汇编语言**</center>
-[TOC]
 
 
 #### **概述**
