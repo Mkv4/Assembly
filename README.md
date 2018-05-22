@@ -64,6 +64,10 @@ end start
 
 #### **示例**
 
-示例见firstAssembly工程
+示例见firstAssembly工程。
+
+#### **参考教材**
+
+该仓库所有的示例代码编写规范参见教材：《Assembly Language For x86 processors》，中文版本《汇编语言：基于x86处理器》。
 
 
