@@ -7,7 +7,8 @@
 
 #### **环境说明**
 
-不同的计算机体系结构采用的汇编语言有所不同，也就是说汇编语言不能在体系结构不同的计算机中兼容，本文选择Microsoft的Windows操作系统，并且基于X86处理器，要求你的系统首先安装了MASM，MASM的下载地址为：http://www.masm32.com/download.htm ，下载后按照提示安装即可。安装完成之后，我们采用微软提供的Visual Studio工具编写并执行汇编语言。后续部分将详细说明如何配置Visual Studio才能正确执行汇编程序。
+不同的计算机体系结构采用的汇编语言有所不同，也就是说汇编语言不能在体系结构不同的计算机中兼容，本文选择Microsoft的Windows操作系统，并且基于X86处理器，要求你的系统首先安装了MASM（Microsoft Macro Assembler），MASM的下载地址为：http://www.masm32.com/download.htm ，进入后选择一个下载地址如
+US Site 1，点击即可下载。下载后按照提示默认下一步安装即可。安装完成之后，我们采用微软提供的Visual Studio工具编写并执行汇编语言。后续部分将详细说明如何配置Visual Studio才能正确执行汇编程序。
 
 #### **第一个汇编程序**
 
