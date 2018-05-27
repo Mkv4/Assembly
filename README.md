@@ -65,7 +65,7 @@ end start
 
 #### **示例**
 
-示例见firstAssembly工程。
+示例见firstAssembly工程，它是使用Visual Studio 2013编辑的汇编语言的完整示例。
 
 #### **参考教材**
 
